@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
+</head>
+<body>
+
+    <form class="inputs" action="/", method="post">
+        <input type="text" name="query" required>
+        <button type="submit" class="submit">Buscar</button>
+    </form>
+
+    {% if results == True %}
+    <div class="inputs">
+        <button type="submit" id="json" class="submit">Ver Resultados</button>
+    </div>
+    {% endif %}
+
+    <div class="container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Enlace</th>
+                </tr>
+            </thead>
+            <tbody id="res">
+            </tbody>
+        </table>
+    </div>
+
+    
+    <script src="{{ url_for('static', filename='index.js')}}"></script>
+
+</body>
+</html>
